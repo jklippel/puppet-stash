@@ -71,7 +71,7 @@ class stash(
   # Command to stop stash in preparation to updgrade. # This is configurable
   # incase the stash service is managed outside of puppet. eg: using the
   # puppetlabs-corosync module: 'crm resource stop stash && sleep 15'
-  $stop_stash = 'service stash stop && sleep 15',
+  $stop_stash = "service ${product} stop && sleep 15",
 
   # Choose whether to use puppet-staging, or puppet-archive
   $deploy_module = 'archive',
@@ -103,7 +103,7 @@ class stash(
   class { '::stash::install': webappdir => $webappdir, } ->
   class { '::stash::config': } ~>
   class { '::stash::service': } ->
-  class { '::stash::backup': } ->
+#  class { '::stash::backup': } ->
   anchor { 'stash::end': }
 
 }

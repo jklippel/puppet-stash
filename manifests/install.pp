@@ -21,8 +21,6 @@ class stash::install(
   $webappdir,
   ) {
 
-  include '::archive'
-
   if $manage_usr_grp {
     #Manage the group in the module
     group { $group:
@@ -84,6 +82,9 @@ class stash::install(
       }
     }
     'archive': {
+
+      include '::archive'
+
       archive { "/tmp/${file}":
         ensure        => present,
         extract       => true,

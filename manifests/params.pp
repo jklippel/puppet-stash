@@ -7,7 +7,7 @@ class stash::params {
     /RedHat/: {
       if $::operatingsystemmajrelease == '7' {
         $json_packages           = 'rubygem-json'
-        $service_file_location   = '/usr/lib/systemd/system/stash.service'
+        $service_file_location   = '/usr/lib/systemd/system/bitbucket.service'
         $service_file_template   = 'stash/stash.service.erb'
         $service_lockfile        = '/var/lock/subsys/stash'
       } elsif $::operatingsystemmajrelease == '6' {
@@ -20,7 +20,7 @@ class stash::params {
       }
     } /Debian/: {
       $json_packages           = [ 'rubygem-json', 'ruby-json' ]
-      $service_file_location   = '/etc/init.d/stash'
+      $service_file_location   = '/etc/systemd/system/bitbucket'
       $service_file_template   = 'stash/stash.initscript.debian.erb'
       $service_lockfile        = '/var/lock/stash'
     } default: {
