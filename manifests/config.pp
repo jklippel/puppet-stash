@@ -61,11 +61,11 @@ class stash::config(
     notify  => Class['stash::service'],
   } ->
 
-  ini_setting { 'stash_httpport':
+  ini_setting { 'bitbucket_httpport':
     ensure  => present,
     path    => "${stash::webappdir}/conf/scripts.cfg",
     section => '',
-    setting => 'stash_httpport',
+    setting => 'bitbucket_httpport',
     value   => $tomcat_port,
     require => Class['stash::install'],
     before  => Class['stash::service'],
