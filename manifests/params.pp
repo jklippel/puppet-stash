@@ -20,7 +20,7 @@ class stash::params {
       }
     } /Debian/: {
       $json_packages           = [ 'rubygem-json', 'ruby-json' ]
-      $service_file_location   = '/etc/systemd/system/bitbucket'
+      $service_file_location   = '/etc/init.d/bitbucket'
       $service_file_template   = 'stash/stash.initscript.debian.erb'
       $service_lockfile        = '/var/lock/stash'
     } default: {
